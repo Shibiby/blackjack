@@ -3,6 +3,11 @@
 // by Muhammad Feisal
 //
 
+//Disabling Right Click
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+})
+
 // Card variables
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'],
     values = ['Ace', 'King', 'Queen', 'Jack',
@@ -15,19 +20,21 @@ let textArea = document.getElementById('text-area'),
     newGameButton = document.getElementById('new-game-button'),
     hitButton = document.getElementById('hit-button'),
     stayButton = document.getElementById('stay-button');
+quitButton = document.getElementById('quit-button');
 
 // Game variables
 let gameStarted = false,
     gameOver = false,
     playerWon = false,
-    dealerCards = [],
+    computerCards = [],
     playerCards = [],
-    dealerScore = 0,
+    computerScore = 0,
     playerScore = 0,
     deck = [];
 
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
+quitButton.style.display = 'none';
 showStatus();
 
 newGameButton.addEventListener('click', function() {
@@ -37,12 +44,13 @@ newGameButton.addEventListener('click', function() {
 
     deck = createDeck();
     shuffleDeck(deck);
-    dealerCards = [getNextCard(), getNextCard()];
+    computerCards = [getNextCard(), getNextCard()];
     playerCards = [getNextCard(), getNextCard()];
 
     newGameButton.style.display = 'none';
     hitButton.style.display = 'inline';
     stayButton.style.display = 'inline';
+    quitButton.style.display = 'inline';
     showStatus();
 });
 
@@ -57,6 +65,10 @@ stayButton.addEventListener('click', function() {
     checkForEndOfGame();
     showStatus();
 });
+quitButton.addEventListener('click', function() {
+    alert('ARE YOU QUITING THIS GAME?')
+})
+
 
 
 function createDeck() {
@@ -132,7 +144,7 @@ function getScore(cardArray) {
 }
 
 function updateScores() {
-    dealerScore = getScore(dealerCards);
+    computerScore = getScore(computerCards);
     playerScore = getScore(playerCards);
 }
 
@@ -142,10 +154,10 @@ function checkForEndOfGame() {
 
     if (gameOver) {
         // let dealer take cards
-        while (dealerScore < playerScore &&
+        while (computerScore < playerScore &&
             playerScore <= 21 &&
-            dealerScore <= 21) {
-            dealerCards.push(getNextCard());
+            computerScore <= 21) {
+            computerCards.push(getNextCard());
             updateScores();
         }
     }
@@ -153,12 +165,12 @@ function checkForEndOfGame() {
     if (playerScore > 21) {
         playerWon = false;
         gameOver = true;
-    } else if (dealerScore > 21) {
+    } else if (computerScore > 21) {
         playerWon = true;
         gameOver = true;
     } else if (gameOver) {
 
-        if (playerScore > dealerScore) {
+        if (playerScore > computerScore) {
             playerWon = true;
         } else {
             playerWon = false;
@@ -172,9 +184,9 @@ function showStatus() {
         return;
     }
 
-    let dealerCardString = '';
-    for (let i = 0; i < dealerCards.length; i++) {
-        dealerCardString += getCardString(dealerCards[i]) + '\n';
+    let computerCardString = '';
+    for (let i = 0; i < computerCards.length; i++) {
+        computerCardString += getCardString(computerCards[i]) + '\n';
     }
 
     let playerCardString = '';
@@ -185,9 +197,9 @@ function showStatus() {
     updateScores();
 
     textArea.innerText =
-        'Dealer has:\n' +
-        dealerCardString +
-        '(score: ' + dealerScore + ')\n\n' +
+        'Computer has:\n' +
+        computerCardString +
+        '(score: ' + computerScore + ')\n\n' +
 
         'Player has:\n' +
         playerCardString +
@@ -197,7 +209,7 @@ function showStatus() {
         if (playerWon) {
             textArea.innerText += "YOU WIN!";
         } else {
-            textArea.innerText += "DEALER WINS";
+            textArea.innerText += "COMPUTER WINS";
         }
         newGameButton.style.display = 'inline';
         hitButton.style.display = 'none';

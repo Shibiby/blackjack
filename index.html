@@ -1,46 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="styleshher" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>BLACKJACK CARD GAME</title>
-    <link type="rel/stylesheet" type="text/css" href="/style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>BLACKJACK CARD GAME</title>
 </head>
 
 <body>
-    <div class="blackjack col-md-4 center">
-        <header>
-            <div class="container">
-                <h1>Blackjack</h1>
-                <h4>by Muhammad Feisal</h4>
-            </div>
-        </header>
-
-        <main>
-            <p id="text-area"><i>Welcome to Blackjack</i></p>
-            <button id="new-game-button" class="btn btn-success">New Game!</button>
-            <button id="hit-button">Hit!</button>
-            <button id="stay-button">Stay</button>
-        </main>
-
-        <footer>
-
-        </footer>
+    <div class="bj text-center col-md-6" style="width:500px; margin:0 auto;">
+        <div class="header">
+            <h1>BLACKJACK CARD GAME</h1>
+            <h3>by Muhammad Feisal</h3>
+        </div>
+        <div class="main">
+            <p id="text-area" style="font-size: 30px;">Welcome to Blackjack</p>
+            <button id="new-game-button" class="btn btn-mfm">New Game</button>
+            <button id="hit-button" class="btn btn-mfm">Hit!</button>
+            <button id="stay-button" class="btn btn-mfm">Stay!</button>
+            <button id="quit-button" class="btn btn-mfm" onClick="parent.location='index.html'">QUIT!</button>
+        </div>
+        <div class="footer">
+            <p>© 2019 | All Rights Reserved | Muhammad Feisal Shibiby</p>
+        </div>
     </div>
 
-
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/custom.js"></script>
-
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/bootstrap/jquery/jquery-2.2.4.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/custom.js"></script>
 </body>
 
 </html>
