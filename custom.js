@@ -21,6 +21,7 @@ let textArea = document.getElementById('text-area'),
     hitButton = document.getElementById('hit-button'),
     stayButton = document.getElementById('stay-button');
 quitButton = document.getElementById('quit-button');
+instructionsButton = document.getElementById('instructions');
 
 // Game variables
 let gameStarted = false,
@@ -48,6 +49,7 @@ newGameButton.addEventListener('click', function() {
     playerCards = [getNextCard(), getNextCard()];
 
     newGameButton.style.display = 'none';
+    instructionsButton.style.display = 'none';
     hitButton.style.display = 'inline';
     stayButton.style.display = 'inline';
     quitButton.style.display = 'inline';
